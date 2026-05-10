@@ -1,0 +1,297 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background-color: #0f1115;
+    color: #e1e1e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* La estructura del div principal */
+.divPrincipal {
+    width: 900px;
+    height: 100vh;
+    background-color: #1a1c22;
+    border: 1px solid #3a3f4b;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+}
+
+.divGenerico {
+    border: 1px solid #3a3f4b;
+    background-color: #2d323e;
+    color: #e1e1e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .nombreProyecto {
+    font-size: 30px;
+    letter-spacing: 3px;
+    background: #252932;
+}
+
+.cajaConContenido {
+    width: 100%;
+    height: 100%;
+}
+
+/* Las secciones del menú */
+.header {
+    height: 10%;
+}
+
+.zonaSeleccion {
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.seleccionFila {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+}
+
+.zonaIconos {
+    width: 50%;
+    display: flex;
+    gap: 10px;
+}
+
+.ponerCodigo {
+    width: 50%;
+}
+
+.ponerCodigo input {
+    background: transparent;
+    border: none;
+    color: white;
+    text-align: center;
+    outline: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* Todo lo relacioando con las salas */
+#salasPublicas {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.tarjetaSalaPublica {
+    background: #252932;
+    border: 1px solid #3a3f4b;
+    padding: 15px;
+    gap: 5px;
+    display: grid;
+    height: fit-content; 
+    width: fit-content;
+}
+
+.codigoSala {
+    color: #00f2ff;
+    font-size: 1.1rem;
+}
+
+.creadorSala {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.botonEntrar {
+    margin-top: 10px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* el footer */
+.footer {
+    height: 8%;
+    /* esto empuja al footer abajo del todo */
+    margin-top: auto;
+}
+
+.contenidoFooter {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.modoDeJuego {
+    width: 50%;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* cosas interactuables */
+.modoDeJuego:hover {
+    background-color: #3a3f4b;
+}
+
+.modoSeleccionado {
+    background-color: #4a90e2 ;
+    border: 2px solid #00f2ff ;
+    transform: scale(0.95);
+}
+
+.botonDesactivado, button:disabled {
+    opacity: 0.2;
+    cursor: not-allowed ;
+    pointer-events: none;
+    filter: grayscale(1);
+    font-size: 1rem;
+}
+
+.botonActivo {
+    opacity: 1 ;
+    cursor: pointer ;
+    pointer-events: auto ;
+    background-color: #4a90e2 ;
+    border: 1px solid #00f2ff ;
+    filter: none ;
+    font-size: 0.95rem;
+}
+
+/* responsive design para móviles */
+@media (max-width: 800px) {
+    
+    body {
+        height: auto;
+        min-height: 100vh; 
+        overflow-y: auto; /* esto permite el scroll */
+        overflow-x: hidden;
+    }
+
+    .divPrincipal {
+        max-width: 100%;
+        height: auto; 
+        min-height: 100vh;
+        padding: 10px;
+    }
+
+    .header { 
+        height: auto; 
+    }
+
+    .header .nombreProyecto {
+        font-size: 1.5rem; 
+        letter-spacing: 2px; 
+        text-align: center;
+        white-space: normal; 
+    }
+
+    .zonaSeleccion {
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* se ponen todos los iconos como contents */
+    .seleccionFila, .zonaIconos {
+        display: contents; 
+    }
+
+    .ponerCodigo {
+        width: 100%;
+        display: flex;
+    }
+
+    /* se ordena utilizando el atr de order... */
+    #modoBomba { 
+        order: 1; 
+    }
+
+    #modoTrivial { 
+        order: 2; 
+    }
+
+    #botonCrear { 
+        order: 3; 
+    }
+
+    .ponerCodigo { 
+        order: 4; 
+    }
+
+    #botonUnirse { 
+        order: 5; 
+    }
+
+    .divGenerico, .ponerCodigo input {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.9rem;
+        box-sizing: border-box;
+    }
+
+    #salasPublicas {
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+    }
+
+    .salasCreadas {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .contenedorSalas {    
+        width: 100%;
+        box-sizing: border-box;
+        height: auto; 
+        overflow: visible;
+        padding: 5px;
+        gap: 10px; 
+    }
+
+    .tarjetaSalaPublica {
+        width: 100%;
+        padding: 15px; 
+        gap: 2px;
+        box-sizing: border-box;
+    }
+
+    .codigoSala { 
+        font-size: 1rem; 
+    }
+
+    .creadorSala { 
+        font-size: 0.8rem; 
+    }
+
+    .botonEntrar { 
+        margin-top: 5px; 
+        padding: 8px; 
+    }
+
+    .footer {
+        height: auto; 
+        padding-bottom: 5px;
+        margin-top: 0; 
+    }
+
+    .contenidoFooter {
+        font-size: 1rem;
+    }
+}

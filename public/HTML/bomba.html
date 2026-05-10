@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomb Party - Juego</title>
+    <link rel="stylesheet" href="../CSS/estiloBomba.css">
+    <link rel="icon" type="image/png" href="../IMG/icoBomba.png">
+</head>
+
+<body>
+
+    <div id="layoutJuego">
+
+        <aside id="zonaChat">
+            <div id="mensajesChat"></div>
+            <input type="text" id="inputChat" placeholder="Escribe en el chat...">
+
+            <!-- Aquí se utliza <pre> porque respeta las tabulaciones del .json -->
+            <pre id="infoSalaEstado">
+                Esperando los datos de la sala...
+            </pre>
+
+            <button id="cambioChat">Ver información de la sala</button>
+        </aside>
+
+        <main>
+
+            <header>
+                <h2 id="codigoSala">SALA: ----</h2>
+                <button id="botonSalir">SALIR</button>
+            </header>
+
+            <div id="areaJuego">
+                <div id="temporizador">10</div>
+
+                <div id="contenedorJugadores"></div>
+
+                <div id="divBomba">
+
+                    <img src="../IMG/BOMBA.png" alt="Bomba" id="imgBomba">
+
+                    <div id="silaba">--</div>
+                </div>
+            </div>
+
+            <div id="controlesInferiores">
+                <button id="botonRevancha">
+                    JUGARSE LA REVANCHA
+                </button>
+                <input type="text" id="inputPalabra" autofocus placeholder="Espera tu turno...">
+                <div id="logJuego">Esperando jugadores...</div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="../JS/JSBomba.js"></script>
+</body>
+
+</html>
